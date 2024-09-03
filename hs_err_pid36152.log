@@ -1,0 +1,276 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3825), pid=36152, tid=1108
+#
+# JRE version:  (17.0.10+1) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.10+1-b1087.23, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Djava.rmi.server.hostname=127.0.0.1 -Duser.timezone=UTC -Xmx2048m -Xms128m -Djdbc.classpath=D:\IntelliJ IDEA 2023.3.4\plugins\DatabaseTools\lib\jdbc-console.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\checkerframework\checker-qual\3.31.0\checker-qual-3.31.0.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\com\github\waffle\waffle-jna\1.9.1\waffle-jna-1.9.1.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\net\java\dev\jna\jna\4.5.1\jna-4.5.1.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\net\java\dev\jna\jna-platform\4.5.1\jna-platform-4.5.1.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\com\github\ben-manes\caffeine\caffeine\2.6.2\caffeine-2.6.2.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.desktop/java.awt.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt=ALL-UNNAMED --add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -Dfile.encoding=UTF-8 com.intellij.database.remote.RemoteJdbcServer org.postgresql.Driver
+
+Host: AMD Ryzen 7 5800H with Radeon Graphics         , 16 cores, 31G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3958)
+Time: Tue Aug 20 15:08:28 2024 SE Asia Standard Time elapsed time: 0.012237 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001d8ff9f19b0):  JavaThread "Unknown thread" [_thread_in_vm, id=1108, stack(0x00000079b6b00000,0x00000079b6c00000)]
+
+Stack: [0x00000079b6b00000,0x00000079b6c00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x688a29]
+V  [jvm.dll+0x84216a]
+V  [jvm.dll+0x843dae]
+V  [jvm.dll+0x844413]
+V  [jvm.dll+0x24ba8f]
+V  [jvm.dll+0x6857f9]
+V  [jvm.dll+0x67a0aa]
+V  [jvm.dll+0x30c7eb]
+V  [jvm.dll+0x313c96]
+V  [jvm.dll+0x363a2e]
+V  [jvm.dll+0x363c5f]
+V  [jvm.dll+0x2e25b8]
+V  [jvm.dll+0x2e3524]
+V  [jvm.dll+0x812cd1]
+V  [jvm.dll+0x3718e1]
+V  [jvm.dll+0x7f1836]
+V  [jvm.dll+0x3f553f]
+V  [jvm.dll+0x3f7171]
+C  [jli.dll+0x528f]
+C  [ucrtbase.dll+0x29333]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5af28]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffb8dc3ef58, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001d8ffa4da60 GCTaskThread "GC Thread#0" [stack: 0x00000079b6c00000,0x00000079b6d00000] [id=24340]
+  0x000001d8ffa5fbd0 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000079b6d00000,0x00000079b6e00000] [id=44876]
+  0x000001d8ffa60d90 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000079b6e00000,0x00000079b6f00000] [id=24724]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffb8d3f3187]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001d8ff9eba50] Heap_lock - owner thread: 0x000001d8ff9f19b0
+
+Heap address: 0x0000000080000000, size: 2048 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000080000000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, committed 0K, reserved 0K
+  class space    used 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x000001d894200000,0x000001d894600000] _byte_map_base: 0x000001d893e00000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000001d8ffa4e080, (CMBitMap*) 0x000001d8ffa4e0c0
+ Prev Bits: [0x000001d894a00000, 0x000001d896a00000)
+ Next Bits: [0x000001d896a00000, 0x000001d898a00000)
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.008 Loaded shared library D:\IntelliJ IDEA 2023.3.4\jbr\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff692f40000 - 0x00007ff692f4a000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\java.exe
+0x00007ffc42570000 - 0x00007ffc42787000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc41e10000 - 0x00007ffc41ed4000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc3fec0000 - 0x00007ffc4026d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc3f860000 - 0x00007ffc3f971000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffc17de0000 - 0x00007ffc17df7000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\jli.dll
+0x00007ffc372a0000 - 0x00007ffc372bb000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\VCRUNTIME140.dll
+0x00007ffc402d0000 - 0x00007ffc4047e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc3fbe0000 - 0x00007ffc3fc06000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc2c4d0000 - 0x00007ffc2c763000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955\COMCTL32.dll
+0x00007ffc42280000 - 0x00007ffc422a9000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc3fce0000 - 0x00007ffc3fdf9000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc421b0000 - 0x00007ffc42257000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc3fc10000 - 0x00007ffc3fcaa000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffc41dd0000 - 0x00007ffc41e01000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffc3b1f0000 - 0x00007ffc3b1fc000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\vcruntime140_1.dll
+0x00007ffbfd420000 - 0x00007ffbfd4ad000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\msvcp140.dll
+0x00007ffb8d100000 - 0x00007ffb8dd83000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\server\jvm.dll
+0x00007ffc40e50000 - 0x00007ffc40f02000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc41ee0000 - 0x00007ffc41f89000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc3fcb0000 - 0x00007ffc3fcd8000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffc41f90000 - 0x00007ffc420a4000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc13920000 - 0x00007ffc13929000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc3b4a0000 - 0x00007ffc3b4d4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc3e6b0000 - 0x00007ffc3e6fd000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ffc38310000 - 0x00007ffc3831a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc41a40000 - 0x00007ffc41ab1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc3e690000 - 0x00007ffc3e6a3000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ffc3e940000 - 0x00007ffc3e958000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffc36e30000 - 0x00007ffc36e3a000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\jimage.dll
+0x00007ffc37e40000 - 0x00007ffc38072000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffc40480000 - 0x00007ffc4080d000 	C:\WINDOWS\System32\combase.dll
+0x00007ffc420d0000 - 0x00007ffc421a7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffc379b0000 - 0x00007ffc379e2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffc3f9f0000 - 0x00007ffc3fa6b000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffc238b0000 - 0x00007ffc238d5000 	D:\IntelliJ IDEA 2023.3.4\jbr\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\IntelliJ IDEA 2023.3.4\jbr\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955;D:\IntelliJ IDEA 2023.3.4\jbr\bin\server
+
+VM Arguments:
+jvm_args: -Djava.rmi.server.hostname=127.0.0.1 -Duser.timezone=UTC -Xmx2048m -Xms128m -Djdbc.classpath=D:\IntelliJ IDEA 2023.3.4\plugins\DatabaseTools\lib\jdbc-console.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\postgresql\postgresql\42.6.0\postgresql-42.6.0.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\checkerframework\checker-qual\3.31.0\checker-qual-3.31.0.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\com\github\waffle\waffle-jna\1.9.1\waffle-jna-1.9.1.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\net\java\dev\jna\jna\4.5.1\jna-4.5.1.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\net\java\dev\jna\jna-platform\4.5.1\jna-platform-4.5.1.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\PC\AppData\Roaming\JetBrains\IntelliJIdea2023.3\jdbc-drivers\PostgreSQL\42.6.0\com\github\ben-manes\caffeine\caffeine\2.6.2\caffeine-2.6.2.jar --add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.desktop/java.awt.peer=ALL-UNNAMED --add-opens=java.desktop/java.awt=ALL-UNNAMED --add-opens=jdk.unsupported/sun.misc=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -Dfile.encoding=UTF-8 
+java_command: com.intellij.database.remote.RemoteJdbcServer org.postgresql.Driver
+java_class_path (initial): D:\IntelliJ IDEA 2023.3.4\lib\util_rt.jar;D:\IntelliJ IDEA 2023.3.4\lib\util-8.jar;D:\IntelliJ IDEA 2023.3.4\lib\groovy.jar;D:\IntelliJ IDEA 2023.3.4\plugins\DatabaseTools\lib\jdbc-console.jar;D:\IntelliJ IDEA 2023.3.4\plugins\grid-core-impl\lib\jdbc-console-types.jar;D:\IntelliJ IDEA 2023.3.4\lib\util.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2147483648                                {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 134217728                                 {product} {command line}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2147483648                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Users\PC\.jdks\openjdk-21.0.2
+PATH=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\dotnet\;C:\MinGW\bin;C:\Program Files (x86)\dotnet\;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\PC\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\xampp\mysql\bin;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\Users\PC\anaconda3\geckodriver.exe;C:\Program Files\PostgreSQL\16\bin;C:\Program Files\apache-maven-3.9.6\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\PC\AppData\Local\pnpm;C:\Users\PC\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\PC\AppData\Local\Programs\Python\Python312\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\PC\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\PC\AppData\Local\Programs\Python\Python310\;C:\Users\PC\AppData\Local\Microsoft\WindowsApps;C:\Users\PC\AppData\Local\Programs\Microsoft VS Code\bin;D:\IntelliJ IDEA Community Edition 2022.1\bin;;C:\src\flutter\bin;C:\Users\PC\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\xampp\php;;C:\Program Files\JetBrains\PhpStorm 2022.1\bin;;C:\Users\PC\AppData\Roaming\Composer\vendor\bin;C:\Users\PC\AppData\Roaming\npm;D:\DataGrip 2023.3.4\bin;;D:\IntelliJ IDEA 2023.3.4\bin;
+USERNAME=PC
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+TMP=C:\Users\PC\AppData\Local\Temp
+TEMP=C:\Users\PC\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 0, weak refs: 0
+
+JNI global refs memory usage: 0, weak refs: 0
+
+OOME stack traces (most recent first):
+Classloader memory used:
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3958)
+OS uptime: 1 days 18:42 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (16 cores per cpu, 2 threads per core) family 25 model 80 stepping 0 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv
+Processor Information for processor 0
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 1
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 2
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 3
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 4
+  Max Mhz: 3201, Current Mhz: 1990, Mhz Limit: 3201
+Processor Information for processor 5
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 6
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 7
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 8
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 9
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 10
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 11
+  Max Mhz: 3201, Current Mhz: 1990, Mhz Limit: 3201
+Processor Information for processor 12
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 13
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 14
+  Max Mhz: 3201, Current Mhz: 3201, Mhz Limit: 3201
+Processor Information for processor 15
+  Max Mhz: 3201, Current Mhz: 1990, Mhz Limit: 3201
+
+Memory: 4k page, system-wide physical 32104M (5155M free)
+TotalPageFile size 49007M (AvailPageFile size 89M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 71M, peak: 198M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.10+1-b1087.23) for windows-amd64 JRE (17.0.10+1-b1087.23), built on 2024-03-18 by "builduser" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
