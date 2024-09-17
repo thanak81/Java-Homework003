@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps{
-                sh "echo maven --version"
+                sh "maven --version"
             }
         }
     }
