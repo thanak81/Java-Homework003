@@ -8,11 +8,16 @@ pipeline {
                 }
             }
             steps{
-                sh """"
-                    ls -la
-                """
+                sh "echo maven--version"
             }
         }
+    }
+
+    post {
+        success {
+            echo "wow congratz, you passed the test"
+        }
+
     }
 
 }
