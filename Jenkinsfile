@@ -1,23 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage ("French") {
-            steps {
-                sh "echo bonjour"
+        stage("Checkin"){
+            agent {
+                docker {
+                  image  "openjdk:21"
+                }
             }
-        }
-        stage ("English"){
-            steps {
-                sh "echo helloworld"
+            step {
+                sh ```
+                    ls -la
+                ```
             }
-        }
-    }
-    post {
-        success {
-            echo "wow you passed the test"
-        }
-        failure{
-            echo "oh hell naw, your code is shite"
         }
     }
 
