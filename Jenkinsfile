@@ -4,11 +4,11 @@ pipeline {
         stage("Checkin"){
             agent {
                 docker {
-                  image  "openjdk:21"
+                  image  "radut/openjdk-21-maven:latest"
                 }
             }
             steps{
-                 sh "apt-get update && apt-get install -y maven"  // Install Maven
+//                  sh "apt-get update && apt-get install -y maven"  // Install Maven
                  sh "mvn --version"  // Check Maven version
             }
         }
