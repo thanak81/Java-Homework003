@@ -24,11 +24,11 @@ pipeline {
             }
         }
 
-        stage ("Deploy"){
-            steps{
-
-            }
-        }
+//         stage ("Run"){
+//             steps{
+//                 sh "java "
+//             }
+//         }
     }
 
     post {
