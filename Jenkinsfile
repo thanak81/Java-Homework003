@@ -18,11 +18,11 @@ pipeline {
                 sh "mvn test"
             }
         }
-        stage ("Build"){
-            steps{
-                sh "mvn install"
-            }
-        }
+//         stage ("Build"){
+//             steps{
+//                 sh "mvn install"
+//             }
+//         }
 
 //         stage ("Run"){
 //             steps{
