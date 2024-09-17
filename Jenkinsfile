@@ -4,11 +4,12 @@ pipeline {
         stage("Checkin"){
             agent {
                 docker {
-                  image  "maven:3.8.6-openjdk-21"
+                  image  "openjdk:21"
                 }
             }
             steps{
-                sh "mvn --version"
+                 sh "apt-get update && apt-get install -y maven"  // Install Maven
+                 sh "mvn --version"  // Check Maven version
             }
         }
     }
