@@ -8,9 +8,9 @@ pipeline {
                 }
             }
             step {
-                sh ```
+                sh """"
                     ls -la
-                ```
+                """
             }
         }
     }
