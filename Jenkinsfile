@@ -14,14 +14,30 @@ pipeline {
         }
         stage("Test"){
             steps{
+                sh "mvn  clean"
                 sh "mvn test"
+            }
+        }
+        stage ("Build"){
+            steps{
+                sh "mvn install"
+            }
+        }
+
+        stage ("Deploy"){
+            steps{
+
             }
         }
     }
 
     post {
         success {
-            echo "wow congratz, you passed the test"
+            echo "wow congratz, you passed the test nice one"
+        }
+
+        failure {
+            sh "echo your code is shite dawg dafak"
         }
 
     }
