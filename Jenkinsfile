@@ -8,6 +8,8 @@ pipeline {
                 }
             }
             steps{
+                sh "apt-get update"
+                sh "apt-get install -y maven"
                 sh "mvn --version"
             }
         }
