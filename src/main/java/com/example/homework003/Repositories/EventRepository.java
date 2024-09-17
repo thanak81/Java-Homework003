@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface EventRepository {
+publics interface EventRepository {
     @Select("SELECT * FROM events ORDER BY event_id LIMIT #{size} OFFSET (#{page}-1)")
     @Results(id = "eventResultMap", value = {
             @Result(property = "eventId", column = "event_id"),
