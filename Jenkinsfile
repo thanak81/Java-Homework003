@@ -7,7 +7,7 @@ pipeline {
                   image  "openjdk:21"
                 }
             }
-            step {
+            steps{
                 sh """"
                     ls -la
                 """
