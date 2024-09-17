@@ -12,6 +12,11 @@ pipeline {
                  sh "mvn --version"  // Check Maven version
             }
         }
+        stage("Test"){
+            steps{
+                sh "mvn test"
+            }
+        }
     }
 
     post {
