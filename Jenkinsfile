@@ -36,6 +36,7 @@ pipeline {
                         sh "mvn test"
                     }
          }
+
          stage ("Build & Push Docker Image"){
             steps{
                 script {
