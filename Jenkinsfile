@@ -12,12 +12,10 @@ pipeline {
                 cleanWs() // Jenkins func to clean workspace
             }
         }
+         stage ("Checkout from SCM"){
+                    steps{
+                        git branch: "main", credentialsId: "github", url: "https://github.com/thanak81/Java-Homework003.git"
+                    }
+                }
     }
-    stages {
-        stage ("Checkout from SCM"){
-            steps{
-                git branch: "main", credentialsId: "github", url: "https://github.com/thanak81/Java-Homework003.git"
-            }
-        }
-        }
 }
