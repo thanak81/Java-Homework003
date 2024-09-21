@@ -1,3 +1,3 @@
 FROM openjdk:21
-COPY target/Homework003.jar Homework003.jar
-ENTRYPOINT ["java","-jar","/Homework003.jar"]
+COPY target/Homework003-0.0.1-SNAPSHOT.jar Homework003-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/Homework003-0.0.1-SNAPSHOT.jar"]
