@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage ("Checkout from SCM"){
             steps{
-                git branch: "main", credentialId: "github", url: "https://github.com/thanak81/Java-Homework003.git"
+                git branch: "main", credentialsId: "github", url: "https://github.com/thanak81/Java-Homework003.git"
             }
         }
         }
