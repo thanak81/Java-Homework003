@@ -16,6 +16,16 @@ pipeline {
                     steps{
                         git branch: "main", credentialsId: "github", url: "https://github.com/thanak81/Java-Homework003.git"
                     }
+        }
+        stage ("Build application"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+         stage ("Test Application"){
+                    steps{
+                        sh "mvn test"
+                    }
                 }
     }
 }
