@@ -1,45 +1,23 @@
 pipeline {
-    agent any
+    agent {
+        label "jenkins-agent"
+    }
+    tools {
+        jdk "Java21"
+        maven "Maven3"
+    }
+    stages{
+        stage ("Cleanup workspace"){
+            steps {
+                cleanWs() // Jenkins func to clean workspace
+            }
+        }
+    }
     stages {
-        stage("Checkin"){
-            agent {
-                docker {
-                  image  "radut/openjdk-21-maven:latest"
-                }
-            }
+        stage ("Checkout from SCM"){
             steps{
-//                  sh "apt-get update && apt-get install -y maven"  // Install Maven
-                 sh "mvn --version"  // Check Maven version
+                git branch: "main", credentialId: "github", url: "https://github.com/thanak81/Java-Homework003.git"
             }
         }
-        stage("Test"){
-            steps{
-                sh "mvn  clean"
-                sh "mvn test"
-            }
         }
-//         stage ("Build"){
-//             steps{
-//                 sh "mvn install"
-//             }
-//         }
-
-//         stage ("Run"){
-//             steps{
-//                 sh "java "
-//             }
-//         }
-    }
-
-    post {
-        success {
-            echo "wow congratz, you passed the test nice one"
-        }
-
-        failure {
-            sh "echo your code is shite dawg dafak"
-        }
-
-    }
-
 }
