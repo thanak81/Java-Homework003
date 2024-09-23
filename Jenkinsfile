@@ -52,13 +52,41 @@ pipeline {
                 }
             }
          }
-         stage ("Triggered CD Pipeline"){
-            steps {
-                script {
+           stage ("Checkout from Our K8S manifest repository"){
+                     steps{
+                         git branch : "main" , credentialsId: "github" , url : "https://github.com/thanak81/spring-argo-pipeline.git"
+                     }
+                 }
+                    stage ("Update the Deployment Tags"){
+                     steps {
+                         script {
+                         sh """
+                             cat k8s/deployment.yaml
+                             sed -i 's|image: ${DOCKER_USER}/${APP_NAME}:.*|image: ${DOCKER_USER}/${APP_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
+                             cat k8s/deployment.yaml
+                         """
+                         }
 
-                                                       sh "curl -v -k --user admin:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://35.240.229.111:8080/job/springboot-complete-pipeline/buildWithParameters?token=gitops-token'"
-                               }
-            }
-         }
+                     }
+                 }
+             stage ("Push the changed deployment file to GIT"){
+                     steps{
+                         script {
+                         sh """
+                             git config --global user.name "thanak81"
+                             git config --global user.email "thanakmech@gmail.com"
+                             git add k8s/deployment.yaml
+                             git commit -m "Updated Deployment Manifest"
+                         """
+                         // withCredentials([gitUsernamePassword[credentialsId: "github", gitToolName: "Default"]]){
+                         //     sh "git push https://github.com/thanak81/nextcicd-k8s_manifest.git main"
+                         // }
+                         withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+                             sh "git push https://$USERNAME:$PASSWORD@github.com/thanak81/spring-argo-pipeline main"
+                         }
+                         }
+
+                     }
+                 }
     }
 }
